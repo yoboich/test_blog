@@ -115,3 +115,13 @@ def create_user_profile(sender, instance, created, **kwargs):
 def save_user_profile(sender, instance, **kwargs):
     instance.profile.save()
     instance.playprofile.save()
+    
+    
+class AccessToken(models.Model):
+    token = models.CharField(
+        max_length=255,
+    )
+    user = models.ForeignKey(
+        to='CustomUser',
+        on_delete=models.CASCADE
+    )

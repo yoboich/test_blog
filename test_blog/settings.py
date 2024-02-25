@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-(aj3x$v#zas#a@n1w*lbc(fht75fdb_k-@opttq2(e#3d$7a09
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
+AUTH_USER_MODEL = 'users.User'
+# Application definition
 
 # Application definition
 
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'test_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,3 +127,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+OAUTH2_PROVIDER = {
+    "PKCE_REQUIRED": False
+}
